@@ -1,0 +1,54 @@
+import cv2
+from ultralytics import YOLO
+import serial
+import time
+
+# --- CONFIGURATION ---
+# 1. Path to your BEST model (Check this path!)
+MODEL_PATH = "runs/detect/DrishtiX_Final2/weights/best.pt"
+
+# 2. Confidence Threshold (How sure must the AI be?)
+# We set it high (0.65) to avoid false alarms
+CONF_THRESHOLD = 0.65
+
+# 3. Serial Port for IoT (Uncomment if using ESP32 via USB)
+# serial_port = '/dev/ttyUSB0'  # Linux/Mac
+# serial_port = 'COM3'          # Windows
+# baud_rate = 9600
+# ser = serial.Serial(serial_port, baud_rate, timeout=1)
+
+# --- LOAD BRAIN ---
+print("Loading DrishtiX AI...")
+model = YOLO(MODEL_PATH)
+classNames = model.names # This gets the names: Elephant, Wild Boar, etc.
+
+# --- START CAMERA ---
+cap = cv2.VideoCapture(0)
+cap.set(3, 640)
+cap.set(4, 480)
+
+print("System Active. Press 'q' to quit.")
+
+while True:
+    success, img = cap.read()
+    if not success: break
+
+    # Run AI Detection
+    results = model(img, stream=True, verbose=False)
+    
+    threat_detected = False
+
+    for r in results:
+        boxes = r.boxes
+        for box in boxes:
+            # 1. Check Confidence
+            conf = float(box.conf[0])
+            if conf < CONF_THRESHOLD:
+                continue # Skip weak detections
+
+            # 2. Identify Object
+            cls = int(box.cls[0])
+            name = classNames[cls]
+            
+            # 3. Draw Green Box (Visual only)
+            x1, y1, 
