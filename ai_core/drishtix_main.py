@@ -127,11 +127,11 @@ class DrishtiXSystem:
         self.alert_cooldown = 60 # Seconds
     
     def get_next_image_path(self, animal_name):
-        \"\"\"Generate sequential image path in breached folder\"\"\"
+        """Generate sequential image path in breached folder"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         existing_files = [f for f in os.listdir(self.breached_folder) if f.endswith('.jpg')]
         sequence = len(existing_files) + 1
-        filename = f\"{sequence:04d}_{animal_name.replace(' ', '_')}_{timestamp}.jpg\"
+        filename = f"{sequence:04d}_{animal_name.replace(' ', '_')}_{timestamp}.jpg"
         return os.path.join(self.breached_folder, filename)
 
     def run(self):

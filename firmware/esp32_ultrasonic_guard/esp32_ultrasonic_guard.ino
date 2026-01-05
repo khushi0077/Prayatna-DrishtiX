@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #define LED_PIN 2
 
 char command;

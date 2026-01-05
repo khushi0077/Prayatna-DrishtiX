@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['elephants', 'giraffe', 'humans']
+
+roboflow:
+  workspace: st-joseph-qpau2
+  project: elephant-2ns7q
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/st-joseph-qpau2/elephant-2ns7q/dataset/4

@@ -1,0 +1,39 @@
+# DrishtiX Ultimate - Python Dependencies
+
+# Core ML/AI
+ultralytics>=8.0.0          # YOLOv8 object detection
+opencv-python>=4.8.0        # Computer vision and camera handling
+torch>=2.0.0                # PyTorch backend for YOLO
+torchvision>=0.15.0         # Vision utilities
+
+# Dashboard & UI
+streamlit>=1.28.0           # Web dashboard interface
+pillow>=10.0.0              # Image processing
+
+# Communication & Alerts
+pywhatkit>=5.4              # WhatsApp automation
+pyautogui>=0.9.54           # GUI automation for WhatsApp
+requests>=2.31.0            # HTTP requests for Telegram
+python-telegram-bot>=20.0   # Telegram bot API
+
+# Audio
+pygame>=2.5.0               # Audio playback for sirens
+
+# System & Utilities
+pyserial>=3.5               # Serial communication with ESP32
+pybluez>=0.23               # Bluetooth communication (offline mode)
+python-dotenv>=1.0.0        # Environment variable management
+
+# Image Processing
+numpy>=1.24.0               # Numerical operations
+scipy>=1.11.0               # Scientific computing
+
+# Logging & Monitoring
+loguru>=0.7.0               # Advanced logging
+
+# Development Tools (Optional)
+# Uncomment for development
+# black>=23.0.0             # Code formatting
+# ruff>=0.1.0               # Fast linter
+# pytest>=7.4.0             # Testing framework
+# pytest-cov>=4.1.0         # Code coverage
