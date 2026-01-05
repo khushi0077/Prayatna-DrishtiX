@@ -1,0 +1,26 @@
+Ultrasonic Sensors (HC-SR04) - The Eyes
+
+    VCC → ESP32 VIN (5V)
+
+    GND → ESP32 GND
+
+    Trig → ESP32 D5
+
+    Echo → ESP32 D18
+
+    (If using 2 sensors, connect the second one to D19 (Trig) and D21 (Echo))
+
+
+GSM Module (SIM800L) - The Offline Mouth
+
+    ⚠️ WARNING: SIM800L needs 3.7V-4.2V. Do NOT connect to 5V (burn) or 3.3V (unstable). Use a Li-ion battery or a buck converter.
+
+    VCC → External Battery + (Common Ground with ESP32)
+
+    GND → ESP32 GND
+
+    TX → ESP32 D16 (RX2)
+
+    RX → ESP32 D17 (TX2)
+
+
